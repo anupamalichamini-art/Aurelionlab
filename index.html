@@ -68,7 +68,27 @@
     }
   </style>
 </head>
+<script>
+function sendWhatsApp() {
+  var name = document.getElementById("name").value;
+  var phone = document.getElementById("phone").value;
+  var test = document.getElementById("test").value;
+  var date = document.getElementById("date").value;
 
+  var message =
+    "Aurelion Lab Appointment Request%0A" +
+    "Name: " + name + "%0A" +
+    "Phone: " + phone + "%0A" +
+    "Test: " + test + "%0A" +
+    "Date: " + date;
+
+  var whatsappNumber = "947XXXXXXXX"; // 🔴 CHANGE THIS
+
+  var url = "https://wa.me/" + whatsappNumber + "?text=" + message;
+
+  window.open(url, "_blank");
+}
+</script>
 <body>
 
 <header>AURELION LAB</header>
@@ -86,7 +106,18 @@
   <div class="card">Urine & Stool Analysis</div>
   <div class="card">Infectious Disease Testing</div>
 </div>
+<div class="section" id="appointment">
+  <h2>Book an Appointment</h2>
 
+  <div class="card">
+    <input id="name" type="text" placeholder="Full Name" style="width:90%; padding:10px; margin:8px;"><br>
+    <input id="phone" type="text" placeholder="Phone Number" style="width:90%; padding:10px; margin:8px;"><br>
+    <input id="test" type="text" placeholder="Test Type (e.g. Blood Test)" style="width:90%; padding:10px; margin:8px;"><br>
+    <input id="date" type="date" style="width:90%; padding:10px; margin:8px;"><br>
+
+    <button onclick="sendWhatsApp()" class="btn">Submit Appointment</button>
+  </div>
+</div>
 <div class="section">
   <h2>Why Choose Us</h2>
   <div class="card">✔ Accurate Results</div>
